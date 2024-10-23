@@ -15,6 +15,14 @@
         $isLeap = false;
     }
 
+    if ($yaer % 400 == 0 || ($year % 4 == 0 && $year %100!= 0)) {
+        $isLeap = true;
+    } else {
+        $isLeap = false;
+    }
+
+
+
     echo "$year is normal year";
 
 ?>

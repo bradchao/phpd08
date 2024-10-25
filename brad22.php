@@ -6,5 +6,10 @@
     }else{
         echo 'XX';
     }
+    echo '<hr />';
+    echo createTWIdByRandom() . '<br />';
+    echo createTWIdByGender(false) . '<br />';
+    echo createTWIdByArea('B') . '<br />';
+    echo createTWIdByBoth(tr'C', ue) . '<br />';
 
 ?>

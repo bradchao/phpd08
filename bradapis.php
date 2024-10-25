@@ -1,4 +1,5 @@
 <?php
+    define('LETTERS', 'ABCDEFGHJKLMNPQRSTUVXYWZIO');
 
     function checkTWId($id){
         $isRight = false;
@@ -25,8 +26,8 @@
         if (preg_match('/^[A-Z][12][0-9]{8}$/', $id)){
             //$isRight = true;
             $c1 = substr($id,0,1);
-            $letters = 'ABCDEFGHJKLMNPQRSTUVXYWZIO';
-            $a12 = strpos($letters, $c1) + 10;
+           
+            $a12 = strpos(LETTERS, $c1) + 10;
             $a1 = (int)($a12 / 10);
             $a2 = $a12 % 10;
             $n1 = substr($id, 1, 1);
@@ -45,6 +46,32 @@
         }
 
         return $isRight;
+    }
+
+    function createTWIdByRandom(){
+        $isMale = rand(0,1) == 0;
+        return createTWIdByGender($isMale);
+    }
+    function createTWIdByArea($area){
+        $isMale = rand(0,1) == 0;
+        return createTWIdByBoth($area, $isMale);
+    }
+    function createTWIdByGender($isMale){
+        $area = substr(LETTERS, rand(0,25), 1);
+        return createTWIdByBoth($area, $isMale);
+    }
+    function createTWIdByBoth($area, $isMale){
+        $id = $area;
+        $id .= $isMale? '1' : '2';
+        for ($i=0; $i<7; $i++) $id .= rand(0,9);
+
+        for ($i = 0; $i < 10; $i++){
+            if (checkTWId($id . $i)){
+                $id .= $i;
+                break;
+            }
+        }
+        return $id;
     }
 
 ?>

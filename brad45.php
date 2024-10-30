@@ -10,7 +10,7 @@
     enctype="multipart/form-data">
     Account: <input name="account" id="account" onblur="checkAccount()"/>
     <span id="mesg"></span><br />
-    Password: <input name="passwd" /><br />
+    Password: <input type="password" name="passwd" /><br />
     Name: <input name="name" /><br />
     Icon: <input type="file" name="icon" /><br />
     <input type="submit" value="Register" /><br />

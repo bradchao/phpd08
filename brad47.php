@@ -15,6 +15,7 @@
                                 $hashPasswd,$name,$icon);
             $stmt->fetch();
             if (password_verify($passwd, $hashPasswd)) {
+                
                 header('Location: main.php');
             }
         }

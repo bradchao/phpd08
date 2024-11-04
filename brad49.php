@@ -1,8 +1,22 @@
 <?php
+    include("bradapis.php");
     session_start();;
-    if (!isset($_SESSION["rand"])) header("Location: brad48.php");
+
+    if (!isset($_SESSION["lottery"])) header("Location: brad48.php");
     
-    $rand = $_SESSION['rand'];
+    $lottery = $_SESSION['lottery'];
+    $brad = $_SESSION['std1'];
+
 ?>
-Lottery: <?php echo $rand; ?><hr />
+Lottery: <br />
+<?php 
+    foreach ($lottery as $k => $v) {
+        echo "$v<br />";
+    }
+?>
+<hr />
+<?php
+    echo $brad->getName() . ':' . $brad->sum() .':' . $brad->avg();
+?>
+<hr />
 <a href="brad50.php" >Logout</a>

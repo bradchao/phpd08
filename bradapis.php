@@ -78,4 +78,46 @@
         return $id;
     }
 
+    class Student {
+        private $name, $ch, $eng, $math;
+        public function __construct($name, $ch, $eng, $math) {
+            $this->name = $name;
+            $this->ch = $ch;
+            $this->eng = $eng;
+            $this->math = $math;
+        }
+
+        public function getName() {
+            return $this->name;
+        }
+
+        public function sum(){
+            return $this->ch + $this->eng + $this->math;
+        }
+        public function avg(){
+            return $this->sum() / 3;
+        }
+
+        public function setMath($math){
+            $this->math = $math;
+        }
+    }
+
+
+    class Member {
+        private $id, $account, $name, $icon;
+        public function __construct($id, $account, $name, $icon) {
+            $this->id = $id;
+            $this->account = $account;
+            $this->name = $name;
+            $this->icon = $icon;
+        }
+
+        public function getId() {return $this->id;}
+        public function getName() {return $this->name;}
+        public function getAccount() {return $this->account;}
+        public function getIcon() {return $this->icon;}
+
+    }
+
 ?>

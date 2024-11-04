@@ -5,6 +5,18 @@
             function(data, status){
                 if (status == 'success'){
                     console.log(data);
+                    $('#table').empty();
+                    $(data).each(function(i, row){
+                        $('#table').append(
+                            '<tr>' +
+                            '<td>' + row.id + '</td>' +
+                            '<td>' + row.ename + '</td>' +
+                            '<td>' + row.weight + '</td>' +
+                            '</tr>'
+                        );
+                    });
+
+
                 }
             });
     }

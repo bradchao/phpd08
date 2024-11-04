@@ -1,4 +1,8 @@
 <?php
+    $mysqli = new mysqli('localhost',
+    'root','', 'brad');
+    $mysqli->set_charset('utf8');   
+
     define('LETTERS', 'ABCDEFGHJKLMNPQRSTUVXYWZIO');
 
     function checkTWId($id){

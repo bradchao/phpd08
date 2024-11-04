@@ -1,5 +1,6 @@
 <?php
     include("bradapis.php");
+    session_start();
 
     if (isset($_POST["account"])) {
         $account = $_POST['account']; $passwd = $_POST['passwd'];
@@ -15,7 +16,9 @@
                                 $hashPasswd,$name,$icon);
             $stmt->fetch();
             if (password_verify($passwd, $hashPasswd)) {
-                
+                $member = new Member(
+                    $id,$account,$name,$icon);
+                $_SESSION['member'] = $member;
                 header('Location: main.php');
             }
         }

@@ -5,13 +5,17 @@
             function(data, status){
                 if (status == 'success'){
                     console.log(data);
+                    
+                    $('#cid').html(data.cid);
+                    $('#eid').html(data.eid);
+
                     $('#table').empty();
-                    $(data).each(function(i, row){
+                    $(data.detail).each(function(i, row){
                         $('#table').append(
                             '<tr>' +
-                            '<td>' + row.id + '</td>' +
-                            '<td>' + row.ename + '</td>' +
-                            '<td>' + row.weight + '</td>' +
+                            '<td>' + row.pname + '</td>' +
+                            '<td>' + row.price + '</td>' +
+                            '<td>' + row.qty + '</td>' +
                             '</tr>'
                         );
                     });
